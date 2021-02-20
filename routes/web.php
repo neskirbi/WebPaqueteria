@@ -29,3 +29,7 @@ Route::get('dashboard', function () {
 Route::get('repartidores', function () {
     return view('supervisor.repartidores');
 })->name('repartidores');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
