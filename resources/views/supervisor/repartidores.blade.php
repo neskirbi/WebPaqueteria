@@ -26,6 +26,7 @@
                             <th scope="col">Telefono</th>
                             <th scope="col">Usuario</th>
                             <th scope="col">Password</th>
+                            <th scope="col">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,8 +39,14 @@
                             <td>{!! $repartidor->user !!}</td>
                             <td>{!! $repartidor->password !!}</td>
                             <td>
-                                <a class="btn btn-info" href="{{ route('repartidores.show',$repartidor->idrepartidor) }}">Ver</a>
-                                
+                                <a class="d-inline p-2 btn btn-info" href="{{ route('repartidores.show',$repartidor->idrepartidor) }}">Ver</a>
+                                <form action="{{route('repartidores.destroy',$repartidor->idrepartidor)}}" method="POST"  class="d-inline p-2">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button  id="borrar"  class="btn btn-danger" data-nombre="{!!$repartidor->nombres!!} {!!$repartidor->apellidopaterno!!} {!!$repartidor->apellidomaterno!!}">Borrar</button>
+                                    
+                                </form>
+                                            
                             </td>
                             </tr>
                             @endforeach
@@ -55,4 +62,13 @@
 </div>
     
 </body>
+<script>
+$( "#borrar" ).click(function( event ) {
+    if(confirm('Seguro que quiere borrar: '+$(this).data('nombre'))){}else{
+        event.preventDefault();
+    }
+  
+  
+});
+</script>
 </html>

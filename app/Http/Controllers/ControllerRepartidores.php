@@ -56,7 +56,7 @@ class ControllerRepartidores extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idrepartidor)
     {
        
     }
@@ -67,7 +67,7 @@ class ControllerRepartidores extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idrepartidor)
     {
         //
     }
@@ -79,7 +79,7 @@ class ControllerRepartidores extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idrepartidor)
     {
         //
     }
@@ -90,8 +90,11 @@ class ControllerRepartidores extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idrepartidor)
     {
-        //
+        $repartidor=Repartidor::find($idrepartidor);
+        $nombre=$repartidor->nombres." ".$repartidor->apellidopaterno." ".$repartidor->apellidomaterno;
+    	$repartidor->delete();
+    	return redirect('repartidores')->with('danger',$nombre.': fue borrado.');
     }
 }
