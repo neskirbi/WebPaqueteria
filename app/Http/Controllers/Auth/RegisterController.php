@@ -65,7 +65,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Supervisor::create([
-            'idsupervisor'=>GetUuid(),
+            'idsupervisor'=> GetUuid(),
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],

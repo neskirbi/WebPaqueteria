@@ -13,7 +13,7 @@ class Supervisores extends Migration
      */
     public function up()
     {
-        Schema::create('supervisores', function (Blueprint $table) {
+        Schema::create('supervisors', function (Blueprint $table) {
             $table->string('idsupervisor',32)->unique();
             $table->string('name');
             $table->string('email')->unique();
