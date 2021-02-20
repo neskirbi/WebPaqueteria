@@ -15,4 +15,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('loginsup', function () {
+    return view('supervisor.loginsup');
+})->name('loginsup');
+
+
+Route::get('dashboard', function () {
+    return view('supervisor.dashboard');
+})->name('dashboard');
+
+Route::get('repartidores', function () {
+    return view('supervisor.repartidores');
+})->name('repartidores');
