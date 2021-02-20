@@ -37,4 +37,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function attemptLogin(Request $request)
+    {
+        $user = User::where([
+            'email' => $request->email, 
+            'password' => $request->password
+        ])->first();
+        
+        if($user)
+        {
+            Auth::login($user);
+            return redirect()->route('dashboard');
+        }
+    }
 }
