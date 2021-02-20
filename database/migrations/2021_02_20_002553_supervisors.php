@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Supervisores extends Migration
+class Supervisors extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Supervisores extends Migration
      */
     public function up()
     {
-        Schema::create('supervisores', function (Blueprint $table) {
+        Schema::create('supervisors', function (Blueprint $table) {
             $table->string('idsupervisor',32)->unique();
             $table->string('name');
             $table->string('email')->unique();
@@ -30,6 +30,6 @@ class Supervisores extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supervisores');
+        Schema::dropIfExists('supervisors');
     }
 }
