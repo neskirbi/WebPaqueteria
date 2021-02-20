@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supervisor extends Model
+class Supervisor extends Authenticatable
 {
     //
     protected $primaryKey = 'idsupervisor';
