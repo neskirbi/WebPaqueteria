@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Repartidores') }} <a class="float-right btn btn-primary" href="{{ route('repartidores.create') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar Repartidores</a></div>
+                <div class="card-header">{{ __('Repartidores') }} <a class="float-right btn btn-primary" href="{{ route('repartidores.create') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar Repartidor</a></div>
 
                 <div class="card-body">
                 @include('fragments.notifications')
