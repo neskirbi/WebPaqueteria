@@ -37,4 +37,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    protected function attemptLogin(Request $request)
+    {
+        $supervisor = Supervisor::where([
+            'email' => $request->email, 
+            'password' => $request->password
+        ])->first();
+        
+        if($supervisor)
+        {
+            Auth::login($supervisor);
+            return redirect()->route('dashboard');
+        }
+    }
 }
