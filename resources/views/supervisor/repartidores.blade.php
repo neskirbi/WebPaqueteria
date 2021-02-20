@@ -9,5 +9,6 @@
     </head>
     <body>
         @include('navigators.navigatorsup')
+        repartidores
     </body>
 </html>
