@@ -26,9 +26,10 @@ Route::get('dashboard', function () {
     return view('supervisor.dashboard');
 })->name('dashboard');
 
-Route::get('repartidores', function () {
+/*Route::get('repartidores', function () {
     return view('supervisor.repartidores');
-})->name('repartidores');
+})->name('repartidores');*/
+Route::resource('repartidores', 'ControllerRepartidores');
 
 Auth::routes();
 

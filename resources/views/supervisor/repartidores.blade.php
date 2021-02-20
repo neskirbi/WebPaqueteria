@@ -1,14 +1,58 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        @include('header')
-        <title>Repartidores</title>
-               
-    </head>
-    <body>
-        @include('navigators.navigatorsup')
-        repartidores
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repartidores</title>
+    @include('header')
+</head>
+<body>
+@include('navigators.navigatorsup')
+<br><br><br><br>
+<div class="container" >
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">{{ __('Repartidores') }} <a class="float-right btn btn-primary" href="{{ route('repartidores.create') }}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar Repartidores</a></div>
+
+                <div class="card-body">
+                @include('fragments.notifications')
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                            <th scope="col">Nombre(s)</th>
+                            <th scope="col">Apellido Materno</th>
+                            <th scope="col">Apellido Paterno</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($repartidores as $repartidor)
+                            <tr>
+                            <td>{!! $repartidor->nombres !!}</td>
+                            <td>{!! $repartidor->apellidopaterno !!}</td>
+                            <td>{!! $repartidor->apellidomaterno !!}</td>
+                            <td>{!! $repartidor->telefono !!}</td>
+                            <td>{!! $repartidor->user !!}</td>
+                            <td>{!! $repartidor->password !!}</td>
+                            <td>
+                                <a class="btn btn-info" href="{{ route('repartidores.show',$repartidor->idrepartidor) }}">Ver</a>
+                                
+                            </td>
+                            </tr>
+                            @endforeach
+                            
+                        </tbody>
+                    </table>
+                    {{ $repartidores->links() }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</body>
 </html>

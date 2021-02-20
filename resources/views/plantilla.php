@@ -8,6 +8,6 @@
                
     </head>
     <body>
-        @include('navigator')
+        @include('navigators.navigator')
     </body>
 </html>

@@ -11,7 +11,7 @@
             <a class="nav-link" href="{{route('dashboard')}}">Dashboard</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('repartidores')}}">Repartidores</a>
+            <a class="nav-link" href="{{route('repartidores.index')}}">Repartidores</a>
         </li>
         
         <li class="nav-item">
