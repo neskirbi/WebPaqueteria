@@ -16,6 +16,11 @@
     }
     </style>
     <body>
-        @include('navigators.navigator')
+    @guest
+    @include('navigators.navigator')
+    @else
+    @include('navigators.navigatorsup')
+    @endguest
+
     </body>
 </html>

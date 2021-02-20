@@ -15,6 +15,7 @@ class Repartidores extends Migration
     {
         Schema::create('repartidores', function (Blueprint $table) {
             $table->string('idrepartidor',32);
+            $table->string('idsupervisor',32);
             $table->string('nombres');
             $table->string('apellidopaterno');
             $table->string('apellidomaterno');

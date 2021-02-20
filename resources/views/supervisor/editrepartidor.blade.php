@@ -17,36 +17,37 @@
                     <div class="card">
                         <div class="card-header">{{ __('Agregar Candidato') }}</div>
                         <div class="card-body">
-                            <form method="post" action="{{route('repartidores.store')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('repartidores.update',$repartidor->idrepartidor)}}" enctype="multipart/form-data">
                             @csrf
+                            <input name="_method" type="hidden" value="PUT">
                                 <div class="form-group">
                                     <label for="nombrse">Nombre(s)</label>
-                                    <input type="text" class="form-control" id="nombres" name="nombres" aria-describedby="emailHelp" placeholder="Nombre(s)">
+                                    <input type="text" class="form-control" id="nombres" name="nombres" aria-describedby="emailHelp" placeholder="Nombre(s)" value="{!!$repartidor->nombres!!}">
                                     <small id="emailHelp" class="form-text text-muted"></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="apellidomaterno">Apellido Materno</label>
-                                    <input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" placeholder="Apellido Paterno">
+                                    <input type="text" class="form-control" id="apellidopaterno" name="apellidopaterno" placeholder="Apellido Paterno" value="{!!$repartidor->apellidopaterno!!}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="apellidopaterno">Apellido Paterno</label>
-                                    <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" placeholder="Apellido Materno">
+                                    <input type="text" class="form-control" id="apellidomaterno" name="apellidomaterno" placeholder="Apellido Materno" value="{!!$repartidor->apellidomaterno!!}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="telefono">Telefono</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono">
-                                </div>                                
+                                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="{!!$repartidor->telefono!!}">
+                                </div>
                                 
                                 <div class="form-group">
                                     <label for="usuario">Usuario</label>
-                                    <input type="text" class="form-control" id="user" name="user" placeholder="Usuario">
+                                    <input type="text" class="form-control" id="user" name="user" placeholder="Usuario" value="{!!$repartidor->user!!}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Password">Password</label>
-                                    <input type="text" class="form-control" id="Password" name="password" placeholder="Password">
+                                    <input type="text" class="form-control" id="Password" name="password" placeholder="Password" value="{!!$repartidor->nombres!!}">
                                 </div>
 
                                 

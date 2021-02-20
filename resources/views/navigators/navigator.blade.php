@@ -1,4 +1,4 @@
-
+<div style="width:100%; height:55px; background-color:#F8F9FA;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light float-right">
     <a class="navbar-brand" href="#">Paquetería</a>
     <!--Boton haburguesa responsivo-->
@@ -15,20 +15,13 @@
         </li>
         
         <li class="nav-item">
-            <a class="nav-link " href="#">Otras cosas</a>
+            <a class="nav-link " href="#">Gerencia</a>
         </li>
 
          <!-- Authentication Links -->
          @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        </li>
-        @if (Route::has('register'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-        @endif
-    @else
+        
+        @else
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
@@ -46,10 +39,11 @@
                 </form>
             </div>
         </li>
-    @endguest
+        @endguest
         </ul>
 
         
         
     </div>
     </nav>
+</div>

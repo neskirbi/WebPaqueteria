@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repartidor;
+use Auth;
+use DB;
 
 class ControllerRepartidores extends Controller
 {
@@ -12,9 +14,16 @@ class ControllerRepartidores extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     { 
-        $repartidores=Repartidor::paginate(15);
+        //$repartidores=Repartidor::paginate(15);
+        $repartidores = DB::table('repartidores')->where('idsupervisor', Auth::User()->idsupervisor)->paginate(15);
         return view('supervisor.repartidores',['repartidores'=>$repartidores]);
     }
 
@@ -38,6 +47,7 @@ class ControllerRepartidores extends Controller
     {
         $repartidor=new Repartidor();
         $repartidor->idrepartidor=GetUuid();
+        $repartidor->idsupervisor=Auth::User()->idsupervisor;
         $repartidor->nombres=$request->nombres;
         $repartidor->apellidomaterno=$request->apellidomaterno;
         $repartidor->apellidopaterno=$request->apellidopaterno;
@@ -47,7 +57,7 @@ class ControllerRepartidores extends Controller
         //$foto = $request->foto;
         //$foto->move(GetPathFotos(), $repartidor->repartidor.".jpg");
         $repartidor->save();
-        return redirect('repartidores');
+        return redirect('repartidores')->with('success','¡Datos Guardados!');
     }
 
     /**
@@ -69,7 +79,8 @@ class ControllerRepartidores extends Controller
      */
     public function edit($idrepartidor)
     {
-        //
+        $repartidor=Repartidor::find($idrepartidor);
+        return view('supervisor.editrepartidor',['repartidor'=>$repartidor]);
     }
 
     /**
@@ -81,7 +92,17 @@ class ControllerRepartidores extends Controller
      */
     public function update(Request $request, $idrepartidor)
     {
-        //
+        $repartidor=Repartidor::find($idrepartidor);
+        $repartidor->nombres=$request->nombres;
+        $repartidor->apellidomaterno=$request->apellidomaterno;
+        $repartidor->apellidopaterno=$request->apellidopaterno;
+        $repartidor->telefono=$request->telefono;
+        $repartidor->user=$request->user;
+        $repartidor->password=$request->password;
+        //$foto = $request->foto;
+        //$foto->move(GetPathFotos(), $repartidor->repartidor.".jpg");
+        $repartidor->save();
+        return redirect('repartidores')->with('success','¡Datos Actualizados!');
     }
 
     /**
