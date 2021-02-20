@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @include('header')
-        <title>Home</title>
+        <title>Repartidores</title>
                
     </head>
     <body>
