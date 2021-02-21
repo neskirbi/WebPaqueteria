@@ -14,13 +14,13 @@ class Repartidores extends Migration
     public function up()
     {
         Schema::create('repartidores', function (Blueprint $table) {
-            $table->string('idrepartidor',32);
+            $table->string('idrepartidor',32)->unique();
             $table->string('idsupervisor',32);
             $table->string('nombres');
             $table->string('apellidopaterno');
             $table->string('apellidomaterno');
             $table->string('telefono');
-            $table->string('user');
+            $table->string('user')->unique();
             $table->string('password');
             $table->timestamps();
         });
