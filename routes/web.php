@@ -30,6 +30,7 @@ Route::get('dashboard', function () {
     return view('supervisor.repartidores');
 })->name('repartidores');*/
 Route::resource('repartidores', 'ControllerRepartidores');
+Route::resource('almacenistas', 'AlmacenistaController');
 
 Auth::routes();
 
