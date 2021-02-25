@@ -8,17 +8,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('home')}}">Home</span></a>
+            <!--no mostrar home--><li class="nav-item active">
+            <!--no mostrar home  <a class="nav-link" href="{{route('home')}}">Home</span></a>
             </li>
-            <li class="nav-item active">
+            no mostrar home-->
+            <li class="nav-item {{ Request::is('dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('dashboard')}}">Dashboard</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('repartidores') ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('repartidores.index')}}">Repartidores</a>
             </li>
             
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('almacenistas') ? 'active' : '' }}">
                 <a class="nav-link " href="{{route('almacenistas.index')}}">Almacenistas</a>
             </li>
 

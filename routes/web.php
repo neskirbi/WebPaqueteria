@@ -22,7 +22,7 @@ Route::get('loginsup', function () {
 })->name('loginsup');
 
 
-Route::get('dashboard', function () {
+Route::middleware('auth')->get('dashboard', function () {
     return view('supervisor.dashboard');
 })->name('dashboard');
 
